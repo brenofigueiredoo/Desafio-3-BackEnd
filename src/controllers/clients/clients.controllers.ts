@@ -14,22 +14,22 @@ const createClientController = async (req: Request, res: Response) => {
 }
 
 const listClientController = async (req: Request, res: Response) => {
-    const id: string = req.params.id
+    const id: string = req.client.id
     const data = await listClientService(id)
     return res.status(200).json(data)
 
 }
 
 const updateClientController = async (req: Request, res: Response) => {
-    const id: string = req.params.id
+    const id: string = req.client.id
     const data: Client = req.body
     const clientUpdated = await updateClientService(data, id) 
     return res.status(200).json(clientUpdated) 
 }
 
 const deleteClientController = async (req: Request, res: Response) => {
-    const id: string = req.params.id
-    const clientDeleted = await deleteClientService(id)
+    const id: string = req.client.id
+    await deleteClientService(id)
     return res.status(204).json()
 }
 

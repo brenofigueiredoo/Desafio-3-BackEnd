@@ -62,7 +62,7 @@ BASE_URL: http://localhost:3000
 4- Deletar Client
   - DELETE /clients/me
   - Precisa de autorização
-  - 
+
 ## Rota de login
 1- Fazer login
   - POST /login

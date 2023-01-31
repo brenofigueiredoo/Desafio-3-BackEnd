@@ -26,7 +26,7 @@ yarn dev
 # Rotas
 O workspace com todas as requisições se encontra na pasta raiz da aplicação para que se possa ser importada no insominia
 
-BASE_URL: http://localhost:3000
+BASE_URL: http://localhost:3001
 
 ## Rotas de Clients
 1- Criar Client

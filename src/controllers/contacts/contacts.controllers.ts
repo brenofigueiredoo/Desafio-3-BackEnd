@@ -14,9 +14,8 @@ const createContactController = async (req: Request, res: Response) => {
 }
 
 const listContactController = async (req: Request, res: Response) => {
-    const {id} = req.params
     const client_id = req.client.id
-    const contact = await listContactService(id, client_id)
+    const contact = await listContactService(client_id)
     return res.status(200).json(contact)
 }
 

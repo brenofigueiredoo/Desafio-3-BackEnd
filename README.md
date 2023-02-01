@@ -87,8 +87,8 @@ BASE_URL: http://localhost:3001
   }
   ```
  
-2- List Contact
-  - GET /contacts/:id
+2- List Contacts
+  - GET /contacts
   - Precisa de autorização
  
 3- Atualizar Contact

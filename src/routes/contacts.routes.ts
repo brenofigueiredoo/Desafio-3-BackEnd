@@ -6,7 +6,7 @@ import verifyBodyContactMiddleware from "../middlewares/verifyBodyContact.middle
 const contactsRoutes = Router()
 
 contactsRoutes.post("", ensureAuthMiddleware, createContactController)
-contactsRoutes.get("/:id", ensureAuthMiddleware, listContactController)
+contactsRoutes.get("", ensureAuthMiddleware, listContactController)
 contactsRoutes.patch("/:id", ensureAuthMiddleware, verifyBodyContactMiddleware, updateContactController)
 contactsRoutes.delete("/:id", ensureAuthMiddleware, deleteContactController)
 

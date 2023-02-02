@@ -20,7 +20,7 @@ const createClientService = async (data: Client) => {
     }
 
     if(phone.length > 11) {
-        throw new AppError("number", 403)
+        throw new AppError("must contain 11 digits", 403)
     }
 
     const newClient = clientRepository.create({

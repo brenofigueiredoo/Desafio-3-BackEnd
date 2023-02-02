@@ -29,7 +29,7 @@ const loginClientService = async (data: IClientLogin) => {
         { expiresIn: "24h", subject: client.id }
       );
     
-    return token;
+    return { token: token, id: client.id };
 }
 
 export default loginClientService

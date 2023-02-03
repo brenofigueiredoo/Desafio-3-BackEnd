@@ -6,6 +6,13 @@ import { AppError } from "../../errors/appError"
 const updateClientService = async (data: Partial<Client>, id: string) => {
     const clientRepository = AppDataSource.getRepository(Client)
 
+    const emailClientAlreadyExist = await clientRepository.findOneBy({email: data.email})
+    const phoneClientAlreadyExist = await clientRepository.findOneBy({phone: data.phone})
+
+    if(emailClientAlreadyExist || phoneClientAlreadyExist){
+        throw new AppError("Client already exists", 403)
+    }
+
     const findClient = await clientRepository.findOneBy({id})
 
     if(!findClient){

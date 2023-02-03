@@ -9,6 +9,10 @@ import { AppError } from "../../errors/appError";
 const loginClientService = async (data: IClientLogin) => {
     const {email, password} = data
 
+    if(!email || !password) {
+        throw new AppError("Must contain email and password", 404)
+    }
+
     const clientRepository = AppDataSource.getRepository(Client)
 
     const client = await clientRepository.findOneBy({email})

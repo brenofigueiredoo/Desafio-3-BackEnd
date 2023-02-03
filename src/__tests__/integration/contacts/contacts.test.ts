@@ -2,7 +2,7 @@ import request from "supertest";
 import { DataSource } from "typeorm";
 import app from "../../../app";
 import AppDataSource from "../../../data-source";
-import { createClient, createContact, createContact2, createContact3, createContact4, createContactBodyIncorreto, loginClient, updateContact } from "../../mocks";
+import { createClient, createContact, createContact2, createContact3, createContact4, createContact5, createContactBodyIncorreto, loginClient, updateContact } from "../../mocks";
 
 describe("Test contacts", () => {
     let connection: DataSource;
@@ -117,7 +117,7 @@ describe("Test contacts", () => {
     await request(app).post("/clients").send(createClient)
     const responseLogin = await request(app).post("/login").send(loginClient)
 
-    const returnContact = await request(app).post("/contacts").set("Authorization", `Bearer ${responseLogin.body.token}`).send(createContact4)
+    const returnContact = await request(app).post("/contacts").set("Authorization", `Bearer ${responseLogin.body.token}`).send(createContact5)
 
     const response = await request(app).delete(`/contacts/${returnContact.body.id}`).set("Authorization", `Bearer ${responseLogin.body.token}`)
     

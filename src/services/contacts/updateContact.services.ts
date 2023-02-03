@@ -18,6 +18,12 @@ const updateContactService = async (data: Partial<Contacts>, client_id: string, 
         }
     })
 
+    findClientInContact.find(elem => {
+        if(elem.email === data.email || elem.phone === data.phone) {
+            throw new AppError("Contact already exists");
+        }
+    })
+
     if(!findClientInContact) {
         throw new AppError("Client not found");
     }

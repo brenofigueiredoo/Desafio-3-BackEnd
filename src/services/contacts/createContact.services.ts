@@ -15,17 +15,17 @@ const createContactService = async (data: Contacts, client_id: string) => {
     const clientRepository = AppDataSource.getRepository(Client)
     
     const findClient = await clientRepository.findOneBy({id: client_id})
-    const findContact = await contactRepository.findOneBy({
+    const findContact = await contactRepository.findBy({
         client: {
             id: client_id
         }
     })
-    
-    if (findContact !== null) {
-        if(findContact.phone === phone || findContact.email === data.email) {
+
+    findContact.find(elem => {
+        if(elem.phone === phone || elem.email === data.email) {
             throw new AppError("Contact is already registered");
         }
-    }
+    })
     
     const newContact = contactRepository.create({
         name,

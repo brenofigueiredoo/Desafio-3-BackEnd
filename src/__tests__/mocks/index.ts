@@ -66,6 +66,12 @@ export const createContact4 = {
     phone: "32344721603"
 }
 
+export const createContact5 = {
+    name: "new contact5",
+    email: "contact5@email.com",
+    phone: "32344721735"
+}
+
 export const updateContact = {
     email: "contactupdated@email.com",
     phone: "12345847620"
